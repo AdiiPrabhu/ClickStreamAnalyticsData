@@ -1,0 +1,23 @@
+{
+  "name": "clickstream-opensearch-sink",
+  "connector.class": "io.aiven.kafka.connect.opensearch.OpensearchSinkConnector",
+  "tasks.max": "1",
+  "topics": "clickstream-events",
+
+  "connection.url": "https://YOUR_OPENSEARCH_HOST:YOUR_OPENSEARCH_PORT",
+  "connection.username": "avnadmin",
+  "connection.password": "YOUR_OPENSEARCH_PASSWORD",
+
+  "key.ignore": "true",
+  "schema.ignore": "true",
+
+  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "false",
+
+  "type.name": "_doc",
+
+  "errors.tolerance": "all",
+  "errors.log.enable": "true",
+  "errors.log.include.messages": "true"
+}
